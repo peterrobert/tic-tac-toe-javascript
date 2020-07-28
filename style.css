@@ -4,12 +4,22 @@
   margin: 0;
   padding: 0;
 }
-
+#start_reset_button{
+  padding: 10px;
+  margin: auto;
+  margin-top: 10px;
+  display: block;
+  width: 100px;
+  text-transform: uppercase;
+  font-weight: 800;
+}
 .container {
-  width: 600px;
+  margin: auto;
+  margin-top: 80px;
+  width: 300px;
   display: grid;
-  grid-template-columns: 200px 200px 200px;
-  grid-template-rows: 200px 200px 200px;
+  grid-template-columns: 100px 100px 100px;
+  grid-template-rows: 100px 100px 100px;
 }
 
 .container .gameboard {
@@ -19,4 +29,12 @@
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+#current-player{
+  text-align: center;
+  font-weight: 800;
+  font-size: 24px;
+  color: red;
+  padding-top: 10px;
 }
