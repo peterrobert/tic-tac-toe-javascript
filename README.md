@@ -11,7 +11,7 @@ JavaScript based basic Tic Tac Toe game.
 
 ## Demo
 
-![Demo](./demo.gif)
+[![DEMO](./demo.png)](./tictactoejs.mp4)
 
 ### [Live Demo Link](https://moinkhanif.dev/tic-tac-toe-javascript)
 
