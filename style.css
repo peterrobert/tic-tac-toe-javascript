@@ -1,0 +1,64 @@
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#labels {
+  margin-top: 50px;
+}
+
+#labels input {
+  margin-top: 10px;
+  margin-bottom: 20px;
+  padding: 10px;
+  border-radius: 10px;
+  border: 2px solid gray;
+}
+
+#start_reset_button {
+  padding: 10px;
+  margin: auto;
+  margin-top: 10px;
+  display: block;
+  width: 100px;
+  text-transform: uppercase;
+  font-weight: 800;
+}
+
+.container {
+  margin: auto;
+  margin-top: 80px;
+  width: 30vw;
+  height: 30vw;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+}
+
+.container .gameboard {
+  border: 2px solid black;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 4rem;
+  cursor: pointer;
+}
+
+#current-player {
+  text-align: center;
+  font-weight: 800;
+  font-size: 24px;
+  color: red;
+  margin-top: 30px;
+}
