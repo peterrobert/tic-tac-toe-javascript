@@ -29,11 +29,11 @@ function GameBoard() {
       });
     });
     if (winner == null && !boardFull()) {
-      document.querySelector('#current-player').innerHTML = `It is ${currentPlayer.name}'s ${currentPlayer.pSymbol} turn! `;
+      document.querySelector('#current-player').innerHTML = `It is ${currentPlayer.name}'s (${currentPlayer.pSymbol}) turn! `;
     } else if (winner == null && boardFull()) {
       document.querySelector('#current-player').innerHTML = 'It\'s a tie!';
     } else if (winner != null) {
-      document.querySelector('#current-player').innerHTML = `The Winner is ${winner.name}! ${winner.pSymbol}`;
+      document.querySelector('#current-player').innerHTML = `The Winner is ${winner.name} (${winner.pSymbol}) !!`;
     }
 
     container.innerHTML = display;
@@ -73,9 +73,11 @@ function Players(playerSymbol, anoName = 'Player') {
   };
 }
 
-let board = GameBoard();
-let playerOne = Players('x');
-let playerTwo = Players('o');
+const board = GameBoard();
+const playerOne = Players('x');
+const playerTwo = Players('o');
+// eslint-disable-next-line no-use-before-define
+let game = GameLogic(playerOne, playerTwo, board);
 
 function allThreeEqual(a, b, c) {
   return a === b && b === c && a !== '';
@@ -93,12 +95,34 @@ function GameLogic(playerOne, playerTwo, board) {
     return currentPlayer;
   }
 
-  //   function currentPlayerF() {
-  //     return currentPlayer;
-  //   }
-
   function assignWinner(pSign) {
     winner = pSign === 'x' ? playerOne : playerTwo;
+  }
+
+  function resetGame(ev = null) {
+    if (ev !== null) {
+      ev.preventDefault();
+    }
+
+    if (document.getElementById('start_reset_button').value === 'start') {
+      document.querySelector('.c-holder').classList.add('container');
+      game.play();
+      playerOne.name = document.getElementById('onename').value === '' ? 'Player One' : document.getElementById('onename').value;
+      playerTwo.name = document.getElementById('twoname').value === '' ? 'Player Two' : document.getElementById('twoname').value;
+
+      document.getElementById('labels').style.display = 'none';
+
+      board.render();
+      document.getElementById('start_reset_button').value = 'reset';
+    } else {
+      winner = null;
+      board = GameBoard();
+      playerOne = Players('x', playerOne.name);
+      playerTwo = Players('o', playerTwo.name);
+      currentPlayer = playerOne;
+      game = GameLogic(playerOne, playerTwo, board);
+      board.render();
+    }
   }
 
   function checkGame() {
@@ -128,33 +152,12 @@ function GameLogic(playerOne, playerTwo, board) {
     play,
     checkGame,
     alterPlayer,
+    resetGame,
     currentPlayer,
   };
 }
 
-let game = GameLogic(playerOne, playerTwo, board);
 window.onload = () => {
   document.getElementById('start_reset_button').value = 'start';
-  document.getElementById('start_reset_button').addEventListener('click', (ev) => {
-    ev.preventDefault();
-    if (document.getElementById('start_reset_button').value === 'start') {
-      game.play();
-      playerOne.name = document.getElementById('onename').value === '' ? 'Player One' : document.getElementById('onename').value;
-      playerTwo.name = document.getElementById('twoname').value === '' ? 'Player Two' : document.getElementById('twoname').value;
-
-      document.getElementById('labels').style.display = 'none';
-
-
-      document.getElementById('start_reset_button').value = 'reset';
-    } else {
-      winner = null;
-      board = GameBoard();
-      playerOne = Players('x', playerOne.name);
-      playerTwo = Players('o', playerTwo.name);
-      currentPlayer = playerOne;
-      game = GameLogic(playerOne, playerTwo, board);
-    }
-
-    board.render();
-  });
+  document.getElementById('start_reset_button').addEventListener('click', game.resetGame);
 };

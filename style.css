@@ -5,6 +5,25 @@
   padding: 0;
 }
 
+form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#labels {
+  margin-top: 50px;
+}
+
+#labels input {
+  margin-top: 10px;
+  margin-bottom: 20px;
+  padding: 10px;
+  border-radius: 10px;
+  border: 2px solid gray;
+}
+
 #start_reset_button {
   padding: 10px;
   margin: auto;
@@ -18,10 +37,11 @@
 .container {
   margin: auto;
   margin-top: 80px;
-  width: 300px;
+  width: 30vw;
+  height: 30vw;
   display: grid;
-  grid-template-columns: 100px 100px 100px;
-  grid-template-rows: 100px 100px 100px;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
 }
 
 .container .gameboard {
@@ -31,6 +51,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  font-size: 4rem;
+  cursor: pointer;
 }
 
 #current-player {
@@ -38,5 +60,5 @@
   font-weight: 800;
   font-size: 24px;
   color: red;
-  padding-top: 10px;
+  margin-top: 30px;
 }
