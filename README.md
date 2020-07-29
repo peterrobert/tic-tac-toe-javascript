@@ -9,6 +9,12 @@
 
 JavaScript based basic Tic Tac Toe game.
 
+## Demo
+
+![Demo](./demo.gif)
+
+### [Live Demo Link](https://moinkhanif.dev/tic-tac-toe-javascript)
+
 ## Features
 
 Some of the features on the projects include:
@@ -17,10 +23,6 @@ Some of the features on the projects include:
 - Default user names when applicable
 - Basic Tic Tac Toe game logic.
 - Game stops when winner is declared.
-
-- Project Links
-
-  - [link1](https://raw.githack.com/peterrobert/tic-tac-toe-javascript/feature-branch/index.html)
 
 ## Technologies Used
 

@@ -105,15 +105,19 @@ function GameLogic(playerOne, playerTwo, board) {
     }
 
     if (document.getElementById('start_reset_button').value === 'start') {
-      document.querySelector('.c-holder').classList.add('container');
-      game.play();
-      playerOne.name = document.getElementById('onename').value === '' ? 'Player One' : document.getElementById('onename').value;
-      playerTwo.name = document.getElementById('twoname').value === '' ? 'Player Two' : document.getElementById('twoname').value;
+      if (document.getElementById('onename').value !== '' && document.getElementById('twoname').value !== '') {
+        document.querySelector('.c-holder').classList.add('container');
+        game.play();
+        playerOne.name = document.getElementById('onename').value;
+        playerTwo.name = document.getElementById('twoname').value;
 
-      document.getElementById('labels').style.display = 'none';
+        document.getElementById('labels').style.display = 'none';
 
-      board.render();
-      document.getElementById('start_reset_button').value = 'reset';
+        board.render();
+        document.getElementById('start_reset_button').value = 'reset';
+      } else {
+        alert('Please enter a valid name');
+      }
     } else {
       winner = null;
       board = GameBoard();
