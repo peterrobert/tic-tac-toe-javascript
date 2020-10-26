@@ -4,7 +4,7 @@ const testPlayer = player
 
 test('it should return the player name and the player symbol', () => {
 
-    let player1 = ["peter", "x"];
+    let player1 = ['peter', 'x'];
 
     expect(testPlayer.Players(player1[1], player1[0])).toStrictEqual({
         "pSymbol": "x",

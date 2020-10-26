@@ -4,8 +4,8 @@ const testGame = GameLogic.GameLogic();
 
 test('it should alternate between the current players', () => {
   
-    let playerone = 'john';
-    let playertwo = 'peter';
+    const playerone = 'john';
+    const playertwo = 'peter';
 
     expect(testGame.alterPlayer(playerone, playertwo, playerone)).toBe(playertwo);
   
