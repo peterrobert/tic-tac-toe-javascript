@@ -1,1 +1,6 @@
+<<<<<<< HEAD
 node_modules
+=======
+node_modules
+.eslintrc.json
+>>>>>>> ffaf1643a6cf06df889f558fa46ee550a07c633d
