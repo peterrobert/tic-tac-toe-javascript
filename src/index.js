@@ -1,3 +1,4 @@
+/* eslint-disable  no-alert */
 let currentPlayer;
 let winner = null;
 
@@ -8,9 +9,9 @@ function GameBoard() {
     ['', '', ''],
   ];
 
-  function boardFull() {
+  function boardFull(e = gameboard) {
     let isFull = false;
-    if (gameboard[0].includes('') || gameboard[1].includes('') || gameboard[2].includes('')) {
+    if (e[0].includes('') || e[1].includes('') || e[2].includes('')) {
       isFull = false;
     } else {
       isFull = true;
@@ -90,13 +91,13 @@ function GameLogic(playerOne, playerTwo, board) {
     board.render();
   }
 
-  function alterPlayer(current) {
-    currentPlayer = current === playerOne ? playerTwo : playerOne;
+  function alterPlayer(current, e = playerOne, f = playerTwo) {
+    currentPlayer = current === e ? f : e;
     return currentPlayer;
   }
 
-  function assignWinner(pSign) {
-    winner = pSign === 'x' ? playerOne : playerTwo;
+  function assignWinner(pSign, e = playerOne, f = playerTwo) {
+    winner = pSign === 'x' ? e : f;
   }
 
   function resetGame(ev = null) {
@@ -130,7 +131,9 @@ function GameLogic(playerOne, playerTwo, board) {
   }
 
   function checkGame() {
-    const { gameboard } = board;
+    const {
+      gameboard,
+    } = board;
     // horizontal
     for (let i = 0; i < 3; i += 1) {
       if (allThreeEqual(gameboard[i][0], gameboard[i][1], gameboard[i][2])) {
@@ -157,9 +160,12 @@ function GameLogic(playerOne, playerTwo, board) {
     checkGame,
     alterPlayer,
     resetGame,
+    assignWinner,
     currentPlayer,
   };
 }
+
+module.exports = { GameBoard, Players, GameLogic };
 
 window.onload = () => {
   document.getElementById('start_reset_button').value = 'start';
