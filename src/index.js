@@ -1,3 +1,4 @@
+/* eslint-disable  no-alert */
 let currentPlayer;
 let winner = null;
 
@@ -95,7 +96,7 @@ function GameLogic(playerOne, playerTwo, board) {
     return currentPlayer;
   }
 
-  function assignWinner(pSign, e = playerOne , f = playerTwo) {
+  function assignWinner(pSign, e = playerOne, f = playerTwo) {
     winner = pSign === 'x' ? e : f;
   }
 
@@ -131,7 +132,7 @@ function GameLogic(playerOne, playerTwo, board) {
 
   function checkGame() {
     const {
-      gameboard
+      gameboard,
     } = board;
     // horizontal
     for (let i = 0; i < 3; i += 1) {
@@ -164,7 +165,7 @@ function GameLogic(playerOne, playerTwo, board) {
   };
 }
 
-module.exports = {GameBoard, Players, GameLogic}
+module.exports = { GameBoard, Players, GameLogic };
 
 window.onload = () => {
   document.getElementById('start_reset_button').value = 'start';
