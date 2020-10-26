@@ -1,0 +1,24 @@
+{
+  "name": "test-tic-tac-toe",
+  "version": "1.0.1",
+  "description": "Creating tests using jest",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack --config webpack.config.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/peterrobert/tic-tac-toe-javascript.git"
+  },
+  "author": "peter robert and moin",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/peterrobert/tic-tac-toe-javascript/issues"
+  },
+  "homepage": "https://github.com/peterrobert/tic-tac-toe-javascript#readme",
+  "devDependencies": {
+    "webpack": "^5.2.0",
+    "webpack-cli": "^4.1.0"
+  }
+}
