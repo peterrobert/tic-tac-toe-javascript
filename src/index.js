@@ -90,13 +90,13 @@ function GameLogic(playerOne, playerTwo, board) {
     board.render();
   }
 
-  function alterPlayer(current) {
-    currentPlayer = current === playerOne ? playerTwo : playerOne;
+  function alterPlayer(current, e = playerOne, f = playerTwo) {
+    currentPlayer = current === e ? f : e;
     return currentPlayer;
   }
 
-  function assignWinner(pSign) {
-    winner = pSign === 'x' ? playerOne : playerTwo;
+  function assignWinner(pSign, e = playerOne , f = playerTwo) {
+    winner = pSign === 'x' ? e : f;
   }
 
   function resetGame(ev = null) {
@@ -159,6 +159,7 @@ function GameLogic(playerOne, playerTwo, board) {
     checkGame,
     alterPlayer,
     resetGame,
+    assignWinner,
     currentPlayer,
   };
 }
